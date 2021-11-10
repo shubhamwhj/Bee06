@@ -8,7 +8,6 @@ width=400
 height=600
 screen = pygame.display.set_mode((width,height))
   
-#load the images in dict
 images={}
 images["bg"] = pygame.image.load("bg.png").convert_alpha()
 images["base"] = pygame.image.load("base.png").convert_alpha()
@@ -16,6 +15,11 @@ images["bee"] = pygame.image.load("bee.png").convert_alpha()
 images["pipe"] = pygame.image.load("pipe.png").convert_alpha()
 images["over"] = pygame.image.load("gameover.png").convert_alpha()
 groundx=0
+
+#Create a score variable that will hold the score.
+
+#create font for displaying the score.
+
 
 class Bee:
     speed=5
@@ -41,8 +45,7 @@ class Pipe:
     def display(self):
         screen.blit(images["pipe"],self.topPipe)
         screen.blit(images["pipe"],self.bottomPipe)
-        #pygame.draw.rect(screen,(250,150,50),pygame.Rect(200,self.gap,100,100))
-    
+        
     def move(self):
         self.topPipe.x-=5
         self.bottomPipe.x-=5    
@@ -85,6 +88,7 @@ while True:
         pipe1.display() 
         pipe2.display() 
         groundx =groundx-5
+        #Add code to create and display the score text.
     
     if state=="over":
         screen.blit(images["over"],[100,200])
